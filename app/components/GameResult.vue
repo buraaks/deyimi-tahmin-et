@@ -11,7 +11,10 @@ const {
 
 <template>
   <div class="flex flex-col items-center text-center space-y-6 animate-fade-in">
-    <UCard class="w-full max-w-lg overflow-hidden" :ui="{ header: 'p-0' }">
+    <UCard
+      class="w-full max-w-lg overflow-hidden"
+      :ui="{ header: 'p-0' }"
+    >
       <!-- Sonuç başlık bandı -->
       <template #header>
         <div
@@ -45,7 +48,10 @@ const {
             />
           </div>
           <div class="text-left">
-            <h3 class="text-lg font-bold" :class="isCorrect ? 'text-success' : isClose ? 'text-warning' : 'text-error'">
+            <h3
+              class="text-lg font-bold"
+              :class="isCorrect ? 'text-success' : isClose ? 'text-warning' : 'text-error'"
+            >
               {{ isCorrect ? 'Doğru Bildin! 🎉' : isClose ? 'Çok Yaklaştın! 🎯' : 'Yanlış Cevap 😔' }}
             </h3>
             <p class="text-sm text-muted">
@@ -59,7 +65,9 @@ const {
         <!-- Kullanıcı cevabı -->
         <div class="p-3 rounded-lg bg-elevated/50 ring-1 ring-default/20">
           <span class="text-xs text-muted">Senin cevabın:</span>
-          <p class="font-medium mt-0.5">{{ userAnswer }}</p>
+          <p class="font-medium mt-0.5">
+            {{ userAnswer }}
+          </p>
         </div>
 
         <!-- Doğru cevap -->
@@ -70,15 +78,24 @@ const {
             : 'bg-primary/5 ring-primary/20'"
         >
           <span class="text-xs text-muted">Doğru cevap:</span>
-          <p class="text-xl font-bold mt-1" :class="isCorrect ? 'text-success' : 'text-primary'">
+          <p
+            class="text-xl font-bold mt-1"
+            :class="isCorrect ? 'text-success' : 'text-primary'"
+          >
             {{ currentStory?.idiom }}
           </p>
         </div>
 
         <!-- Hikaye metni -->
-        <div v-if="currentStory?.text" class="p-3 rounded-lg bg-elevated/30 ring-1 ring-default/10 text-left">
+        <div
+          v-if="currentStory?.text"
+          class="p-3 rounded-lg bg-elevated/30 ring-1 ring-default/10 text-left"
+        >
           <div class="flex items-center gap-1.5 mb-1.5">
-            <UIcon name="i-lucide-book-open" class="w-3.5 h-3.5 text-muted" />
+            <UIcon
+              name="i-lucide-book-open"
+              class="w-3.5 h-3.5 text-muted"
+            />
             <span class="text-xs text-muted">Hikaye</span>
           </div>
           <p class="text-xs text-muted leading-relaxed italic">

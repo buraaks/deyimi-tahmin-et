@@ -23,7 +23,10 @@ function handleSubmit() {
     <UCard class="w-full">
       <template #header>
         <div class="flex items-center gap-2">
-          <UIcon name="i-lucide-book-open" class="w-5 h-5 text-primary" />
+          <UIcon
+            name="i-lucide-book-open"
+            class="w-5 h-5 text-primary"
+          />
           <span class="font-semibold">Hikaye</span>
         </div>
       </template>
@@ -37,23 +40,44 @@ function handleSubmit() {
     <UCard class="w-full">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <UIcon name="i-lucide-volume-2" class="w-5 h-5 text-primary" />
+          <UIcon
+            name="i-lucide-volume-2"
+            class="w-5 h-5 text-primary"
+          />
           <span class="font-medium text-sm">Sesi Dinle</span>
         </div>
 
         <div class="flex items-center gap-3">
           <!-- Hata mesajı -->
-          <span v-if="audioError" class="text-xs text-error">
+          <span
+            v-if="audioError"
+            class="text-xs text-error"
+          >
             {{ audioError }}
           </span>
 
           <!-- Durum göstergesi -->
-          <span v-if="isAudioPlaying" class="flex items-center gap-1.5 text-xs text-primary">
+          <span
+            v-if="isAudioPlaying"
+            class="flex items-center gap-1.5 text-xs text-primary"
+          >
             <span class="flex gap-0.5">
-              <span class="w-1 h-3 bg-primary rounded-full animate-bounce" style="animation-delay: 0ms" />
-              <span class="w-1 h-4 bg-primary rounded-full animate-bounce" style="animation-delay: 150ms" />
-              <span class="w-1 h-2.5 bg-primary rounded-full animate-bounce" style="animation-delay: 300ms" />
-              <span class="w-1 h-3.5 bg-primary rounded-full animate-bounce" style="animation-delay: 100ms" />
+              <span
+                class="w-1 h-3 bg-primary rounded-full animate-bounce"
+                style="animation-delay: 0ms"
+              />
+              <span
+                class="w-1 h-4 bg-primary rounded-full animate-bounce"
+                style="animation-delay: 150ms"
+              />
+              <span
+                class="w-1 h-2.5 bg-primary rounded-full animate-bounce"
+                style="animation-delay: 300ms"
+              />
+              <span
+                class="w-1 h-3.5 bg-primary rounded-full animate-bounce"
+                style="animation-delay: 100ms"
+              />
             </span>
             Oynatılıyor
           </span>
@@ -99,7 +123,10 @@ function handleSubmit() {
     <UCard class="w-full">
       <template #header>
         <div class="flex items-center gap-2">
-          <UIcon name="i-lucide-pencil" class="w-5 h-5 text-primary" />
+          <UIcon
+            name="i-lucide-pencil"
+            class="w-5 h-5 text-primary"
+          />
           <span class="font-semibold">Tahminin</span>
         </div>
       </template>
@@ -107,8 +134,8 @@ function handleSubmit() {
       <form @submit.prevent="handleSubmit">
         <div class="flex flex-col sm:flex-row gap-3">
           <UInput
-            v-model="userAnswer"
             id="guess-input"
+            v-model="userAnswer"
             placeholder="Hangi deyimi anlatıyor?"
             size="lg"
             icon="i-lucide-message-circle"

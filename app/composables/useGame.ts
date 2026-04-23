@@ -19,8 +19,7 @@ function levenshteinDistance(a: string, b: string): number {
     for (let j = 1; j <= n; j++) {
       if (a[i - 1] === b[j - 1]) {
         dp[i]![j] = dp[i - 1]![j - 1]!
-      }
-      else {
+      } else {
         dp[i]![j] = 1 + Math.min(
           dp[i - 1]![j]!,
           dp[i]![j - 1]!,
@@ -83,7 +82,6 @@ export function useGame() {
   const isClose = useState<boolean>('is-close', () => false)
   const isAudioPlaying = useState<boolean>('is-audio-playing', () => false)
   const audioError = useState<string | null>('audio-error', () => null)
-
 
   const lastStoryId = useState<number | null>('last-story-id', () => null)
 

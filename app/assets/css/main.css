@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'Inter', 'Public Sans', sans-serif;
+
+  /* Mavi-yeşil tonları — oyun temasına uygun */
+  --color-green-50: #EFFDF5;
+  --color-green-100: #D9FBE8;
+  --color-green-200: #B3F5D1;
+  --color-green-300: #75EDAE;
+  --color-green-400: #00DC82;
+  --color-green-500: #00C16A;
+  --color-green-600: #00A155;
+  --color-green-700: #007F45;
+  --color-green-800: #016538;
+  --color-green-900: #0A5331;
+  --color-green-950: #052E16;
+
+  /* Animasyon süreleri */
+  --animate-duration-slow: 3s;
+  --animate-duration-slower: 4s;
+  --animate-duration-slowest: 5s;
+}
+
+/* ===== Sayfa geçiş animasyonları ===== */
+
+/* Faz geçişleri */
+.phase-enter-active {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.phase-leave-active {
+  transition: all 0.2s ease-in;
+}
+.phase-enter-from {
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+}
+.phase-leave-to {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+}
+
+/* Fade in */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Slide up */
+.slide-up-enter-active {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.slide-up-leave-active {
+  transition: all 0.2s ease-in;
+}
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* ===== Özel animasyonlar ===== */
+
+/* İlk yüklenme animasyonu */
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Yavaş nabız (ikon için) */
+.animate-pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Ses dalga animasyonları */
+.animate-ping-slow {
+  animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.animate-ping-slower {
+  animation: pingSlow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 0.3s;
+}
+.animate-ping-slowest {
+  animation: pingSlow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 0.6s;
+}
+
+@keyframes pingSlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  75%, 100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}

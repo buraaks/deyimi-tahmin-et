@@ -19,6 +19,11 @@ function handleSubmit() {
 
 <template>
   <div class="flex flex-col items-center space-y-6 animate-fade-in w-full max-w-2xl mx-auto">
+    <!-- Hikaye Başlığı -->
+    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-center">
+      {{ currentStory?.title || 'Hikaye' }}
+    </h2>
+
     <!-- Hikaye Metni — her zaman görünür -->
     <UCard class="w-full">
       <template #header>

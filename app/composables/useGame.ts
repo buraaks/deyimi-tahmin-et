@@ -83,21 +83,31 @@ export function useGame() {
   const isAudioPlaying = useState<boolean>('is-audio-playing', () => false)
   const audioError = useState<string | null>('audio-error', () => null)
 
-  const lastStoryId = useState<number | null>('last-story-id', () => null)
+  const playedStoryIds = useState<number[]>('played-story-ids', () => [])
 
   // Audio elementi (sadece client-side)
   let audioElement: HTMLAudioElement | null = null
 
   /**
-   * Rastgele hikaye seç — üst üste aynı hikaye gelmez
+   * Rastgele hikaye seç — tüm hikayeler bitene kadar aynı hikaye gelmez
    */
   function pickRandomStory(): Story {
-    const pool = stories.length > 1
-      ? stories.filter(s => s.id !== lastStoryId.value)
-      : stories
+    let unplayed = stories.filter(s => !playedStoryIds.value.includes(s.id))
 
-    const index = Math.floor(Math.random() * pool.length)
-    return pool[index]!
+    // Eğer hepsi oynandıysa, listeyi sıfırla (en son oynanan hariç ki üst üste gelmesin)
+    if (unplayed.length === 0) {
+      const lastId = playedStoryIds.value.length > 0 ? playedStoryIds.value[playedStoryIds.value.length - 1] : null
+      playedStoryIds.value = lastId !== undefined && lastId !== null ? [lastId] : []
+      unplayed = stories.filter(s => !playedStoryIds.value.includes(s.id))
+      // Eğer tek hikaye varsa fallback
+      if (unplayed.length === 0) unplayed = stories
+    }
+
+    const index = Math.floor(Math.random() * unplayed.length)
+    const picked = unplayed[index]!
+    
+    playedStoryIds.value.push(picked.id)
+    return picked
   }
 
   /** Sesi başlat (manuel) */
@@ -170,7 +180,7 @@ export function useGame() {
     destroyAudio()
     const story = pickRandomStory()
     currentStory.value = story
-    lastStoryId.value = story.id
+
     userAnswer.value = ''
     isCorrect.value = false
     isClose.value = false

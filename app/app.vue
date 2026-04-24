@@ -27,7 +27,7 @@ useSeoMeta({
 
 <template>
   <UApp>
-    <UHeader>
+    <UHeader :toggle="false">
       <template #left>
         <button
           class="flex items-center gap-2 group cursor-pointer"

@@ -3,9 +3,9 @@ const { phase } = useGame()
 
 useSeoMeta({
   title: 'Deyimi Tahmin Et — Türkçe Deyim Oyunu',
-  description: 'Bir hikaye dinle, hangi Türkçe deyimi anlattığını tahmin et. Eğlenceli ve eğitici bir kelime oyunu.',
+  description: 'Bir hikaye dinle, hangi deyimi anlattığını tahmin et. Eğlenceli ve eğitici bir kelime oyunu.',
   ogTitle: 'Deyimi Tahmin Et',
-  ogDescription: 'Hikaye dinle, deyimi bil! Türkçe deyim bilgini test et.'
+  ogDescription: 'Hikaye dinle, deyimi bil! deyim bilgini test et.'
 })
 </script>
 

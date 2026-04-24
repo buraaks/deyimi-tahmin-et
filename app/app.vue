@@ -44,14 +44,16 @@ useSeoMeta({
       </template>
 
       <template #right>
-        <UButton
-          icon="i-simple-icons-github"
-          color="neutral"
-          variant="ghost"
-          to="https://github.com/buraaks/deyimi-tahmin-et"
-          target="_blank"
-          aria-label="GitHub"
-        />
+        <UTooltip text="GitHub">
+          <UButton
+            icon="i-simple-icons-github"
+            color="neutral"
+            variant="ghost"
+            to="https://github.com/buraaks/deyimi-tahmin-et"
+            target="_blank"
+            aria-label="GitHub"
+          />
+        </UTooltip>
         <UColorModeButton />
       </template>
     </UHeader>
